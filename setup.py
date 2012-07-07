@@ -22,7 +22,12 @@ setup(
         'Flask-Script==0.3.3',
         'flask-sqlalchemy==0.16',
         'Unidecode==0.04.9',
-        'python-dateutil==2.0'
+        'SQLAlchemy==0.7.8',
+        'python-dateutil==2.0',
+        'feedparser==5.1.2',
+        'lxml==2.3.4',
+        'python-dateutil==2.0',
+        'requests==0.13.2'
     ],
     tests_require=[],
     entry_points=\

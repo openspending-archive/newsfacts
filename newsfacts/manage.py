@@ -7,6 +7,7 @@ manager = Manager(app)
 
 @manager.command
 def scrape():
+    """ Update news articles from various sources. """
     pass
 
 if __name__ == '__main__':
