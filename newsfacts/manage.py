@@ -2,6 +2,7 @@ from flaskext.script import Manager
 
 from newsfacts.core import app, db
 from newsfacts.model import *
+from newsfacts import web
 
 manager = Manager(app)
 
