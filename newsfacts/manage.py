@@ -8,7 +8,8 @@ manager = Manager(app)
 @manager.command
 def scrape():
     """ Update news articles from various sources. """
-    pass
+    from newsfacts.scrape import fetch
+    fetch()
 
 if __name__ == '__main__':
     manager.run()
