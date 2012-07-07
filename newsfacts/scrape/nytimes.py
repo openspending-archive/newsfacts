@@ -30,7 +30,7 @@ def get_article(session, entry):
         'title': headline.pop().text,
         'author': author.pop().xpath('string()').strip(),
         'link': link,
-        'id': link,
+        'key': link,
         'date': date,
         'attribution': '',
         'body': html.tostring(body.pop())

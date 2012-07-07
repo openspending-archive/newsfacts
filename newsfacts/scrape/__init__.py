@@ -9,6 +9,8 @@ from newsfacts.scrape import wapo
 from newsfacts.scrape import guardian
 from newsfacts.scrape import ap
 
+from newsfacts.model import Article
+
 ARTICLE_PARSERS = {
     'nytimes': nytimes.get_article,
     'wapo': wapo.get_article,
@@ -25,23 +27,27 @@ def fetch():
         if parser is None:
             log.error("No such parser: %s", parser_name)
         try:
-            fetch_feed(url, parser)
+            fetch_feed(url, parser, parser_name)
         except Exception, e:
             log.exception(e)
 
-def fetch_feed(url, parser):
+def fetch_feed(url, parser, parser_name):
     session = requests.session()
     response = session.get(url)
     feed = feedparser.parse(response.content)
     for entry in feed.entries:
         try:
-            article = parser(session, entry)
-            if article is None:
-                log.warn("No article for entry: %s", entry.link) 
+            data = parser(session, entry)
+            if data is None:
+                log.warn("No data for entry: %s", entry.link) 
                 continue
-            log.info("Loaded: %s", article.get('title'))
+            data['source'] = parser_name
+            data['feed'] = url
+            article = Article.store(data)
+            log.info("Loaded: %s", data.get('title'))
         except Exception, e:
             log.exception(e)
+    db.session.commit()
 
 
 

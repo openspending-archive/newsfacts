@@ -1,4 +1,6 @@
-
+DEBUG = True
+SECRET_KEY = 'no'
+SQLALCHEMY_DATABASE_URI = 'sqlite:///newsfacts.sqlite3'
 
 FEEDS = [
  ('ap', "http://hosted2.ap.org/atom/APDEFAULT/cae69a7523db45408eeb2b3a98c0c9c5"),

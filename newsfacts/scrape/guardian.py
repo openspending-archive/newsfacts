@@ -33,7 +33,7 @@ def get_article(session, entry):
         'title': css('h1').pop().text,
         'author': author,
         'link': entry.link,
-        'id': entry.id,
+        'key': entry.id,
         'date': date,
         'attribution': css('#copyright-links li').pop().xpath('string()'),
         'body': body

@@ -28,7 +28,7 @@ def get_article(session, entry):
         'title': title,
         'author': author,
         'link': link,
-        'id': link,
+        'key': link,
         'date': date,
         'attribution': '',
         'body': body

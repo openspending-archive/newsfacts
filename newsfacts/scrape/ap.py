@@ -18,11 +18,10 @@ def get_article(session, entry):
         'title': css('.ap_head').pop().text,
         'author': author,
         'link': entry.link,
-        'id': entry.id,
+        'key': entry.id,
         'date': date_,
         'attribution': css('#CopyrightLine').pop().xpath('string()'),
         'body': body
         }
     return article
-
 
