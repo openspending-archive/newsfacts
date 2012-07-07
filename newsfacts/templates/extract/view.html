@@ -8,9 +8,11 @@
     <h3>{{article.title}}</h3>
     <div class="row">
         <div class="longtext span8">
-            {{article.body | safe}}
+            {{body | safe}}
         </div>
     </div>
+    <a href="{{article.link}}">Article source</a>
+    <em>{{article.attribution}}</em>
 {% endblock %}
 
 

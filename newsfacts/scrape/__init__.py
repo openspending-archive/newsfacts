@@ -9,6 +9,8 @@ from newsfacts.scrape import wapo
 from newsfacts.scrape import guardian
 from newsfacts.scrape import ap
 
+#from newsfacts.scrape.common import cleanup_body
+
 from newsfacts.model import Article
 
 ARTICLE_PARSERS = {
@@ -43,6 +45,7 @@ def fetch_feed(url, parser, parser_name):
                 continue
             data['source'] = parser_name
             data['feed'] = url
+            #cleanup_body(data['body'])
             article = Article.store(data)
             log.info("Loaded: %s", data.get('title'))
         except Exception, e:

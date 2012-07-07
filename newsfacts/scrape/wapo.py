@@ -30,7 +30,7 @@ def get_article(session, entry):
         'link': link,
         'key': link,
         'date': date,
-        'attribution': '',
+        'attribution': 'The Washington Post',
         'body': body
         }
     return article

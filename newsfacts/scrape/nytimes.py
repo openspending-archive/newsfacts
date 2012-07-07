@@ -32,7 +32,7 @@ def get_article(session, entry):
         'link': link,
         'key': link,
         'date': date,
-        'attribution': '',
+        'attribution': 'The New York Times',
         'body': html.tostring(body.pop())
         }
     return article
